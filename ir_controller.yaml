@@ -461,7 +461,7 @@ datetime:
                   id(ac_off_time).day_of_month += 1;
                   id(ac_off_time).hour -= 23;
                 }
-                id(ac_off_time).recalc_timestamp_local(false);
+                id(ac_off_time).recalc_timestamp_local();
                 ESP_LOGI("ac_timed_off", "[%s] Turn off at %s", 
                   id(sntp_time).now().strftime("%m-%d %H:%M:%S").c_str(),
                   id(ac_off_time).strftime("%m-%d %H:%M:%S").c_str());
@@ -472,7 +472,7 @@ datetime:
                 id(ac_off_time).hour = 0;
                 id(ac_off_time).minute = 0;
                 id(ac_off_time).second = 0;
-                id(ac_off_time).recalc_timestamp_local(false);
+                id(ac_off_time).recalc_timestamp_local();
               }
             } else
               ESP_LOGW("ac_timed_off", "SNTP not finished yet.");
